@@ -13,9 +13,10 @@
 <body>
     <?php require "blocks/header.php" ?>
 
-    <form action="check.php" method="post">
-        <input type="email" name="email" placeholder="Введие Email" class="">
-        <textarea name="message" class="form-control" placeholder="Введие ваше сообщение"></textarea>
+    <form action="check.php" method="post" class="container">
+        <input type="email" name="email" placeholder="Введие Email" class="form-control">
+        <textarea name="message" class="form-control" placeholder="Введие ваше сообщение" class="form-control" ></textarea>
+        <button type="submit" name="send" class="btn btn-success">Отправить</button>
     </form>
 
     <?php require "blocks/footer.php" ?>
