@@ -7,16 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Контакты</title>
 </head>
 
 <body>
     <?php require "blocks/header.php" ?>
-
-    <form action="check.php" method="post" class="container">
-        <input type="email" name="email" placeholder="Введие Email" class="form-control">
-        <textarea name="message" class="form-control" placeholder="Введие ваше сообщение" class="form-control" ></textarea>
-        <button type="submit" name="send" class="btn btn-success">Отправить</button>
+    <?php require "blocks/registration.php" ?>
+    <form action="check.php" method="post" class="container mt-5">
+        <input type="email" name="email" placeholder="Введие Email" class="form-control mb-2">
+        <textarea name="message" class="form-control" placeholder="Введие ваше сообщение" class="form-control" required></textarea>
+        <button type="submit" name="send" class="btn btn-success mt-3">Отправить</button>
     </form>
 
     <?php require "blocks/footer.php" ?>

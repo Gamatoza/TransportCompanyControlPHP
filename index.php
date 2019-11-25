@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Главная</title>
 </head>
 
-<body>
+<body id="mainbody">
     <?php require "blocks/header.php" ?>
-
+    <?php require "blocks/registration.php" ?>
     <div class="container mt-5">
         <h3>Наши статьи</h3>
         <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
