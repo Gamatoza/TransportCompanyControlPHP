@@ -29,10 +29,12 @@ $("#sendMail").on("click",function(){
         beforeSend: function () {
             $("sendMail").prop("disabled",true);
         },
-        success: function () {
-            alert(data); //TODO: отправка сообщения
+        success: function (data) {
+            if(!data)
+                alert("Ошибка, сообщение не отправлено!"); //TODO: отправка сообщения
+            else
+                $("#mailform").trigger("reset");
             $("sendMail").prop("disabled",false);
-
         }
     });
 });
