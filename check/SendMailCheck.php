@@ -1,5 +1,5 @@
 <?php
-    // print_r($_POST);
+    print_r($_POST);
     $email = $_POST["email"];
     $message = $_POST["message"];
     $error = '';
@@ -20,3 +20,4 @@
     mail('gamatext@yandex.ru',$subject,$message,$headers);
 
     header("Location: about.php");
+?>
