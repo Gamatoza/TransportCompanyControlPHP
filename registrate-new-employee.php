@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
     <title>Новый работник</title>
 </head>
 

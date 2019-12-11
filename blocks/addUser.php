@@ -4,18 +4,18 @@
 <form id="someform" class="" action="check/UserAddedCheck.php" method="post">
     <div class="container">
         <label for="emptype"><b>Employee type</b></label>
-        <select name="emptype" class="form-control">
+        <select name="emptype" class="form-control mb-2">
             <option></option>
             <option>Loader</option>
             <option>FarRobber</option>
             <option>Accountant</option>
-        </select><br />
+        </select>
         <!--Добавить проверку на выбор не пустой строки -->
         <label for="NIS"><b>Name Initial Surname</b></label>
         <input type="text" placeholder="Enter NIS" name="NIS" class="form-control" required>
 
         <label for="Birthday"><b>Birthday</b></label>
-        <input class="datepicker form-control" id="datepicker">
+        <input class="datepicker form-control mb-2" id="datepicker">
         <script>
             $(document).ready(function() {
                 $('#datepicker').datepicker({
@@ -33,8 +33,13 @@
         </script>
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" class="form-control" required>
+        <input type="text" placeholder="Enter Password" name="psw" class="form-control" required>
 
+        <label for="phone"><b>Phone number</b></label>
+        <input type="text" placeholder="+375 (999) 99 99 999" id="phone" name="phone" class="form-control" required>
+        <script>
+            $("#phone").mask("+375 (99) 99-99-999");
+        </script>
         <button type="submit" class="btn btn-success mt-3">Registrate</button>
     </div>
 </form>
