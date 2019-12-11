@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col">
                 <label for="emptype"><b>Employee type</b></label>
-                <select name="emptype" id="emptype" class="form-control">
+                <select name="emptype" id="emptype" class="form-control mr-auto w-auto">
+
                     <option></option>
                     <option>Loader</option>
                     <option>FarRobber</option>
@@ -45,19 +46,21 @@
             });
         </script>
 
-        <label for="password"><b>Password</b></label>
-        <input type="text" placeholder="Enter Password" name="password" class="form-control" required>
 
         <label for="phone"><b>Phone number</b></label>
         <input type="text" placeholder="+375 (999) 99 99 999" id="phone" name="phone" class="form-control" required>
         <script>
             $("#phone").mask("+375 (99) 99-99-999"); //маска ввода
         </script>
-
+        
         <div id="place" style="display: none;">
             <label for="workplace"><b>Workplace</b></label>
             <input type="text" placeholder="Enter Workplace" name="workplace" class="form-control">
         </div>
+        
+        <label for="password"><b>Password</b></label>
+        <input type="text" placeholder="Enter Password" name="password" class="form-control" required>
+
         <button type="submit" class="btn btn-success mt-3">Registrate</button>
     </div>
 </form>
