@@ -18,7 +18,6 @@
     <?php require "blocks/registration.php" ?>
 
     <?php require "blocks/addUser.php" ?>
-    
 </body>
 
 </html>
