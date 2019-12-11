@@ -15,9 +15,10 @@
     <?php require "blocks/header.php" ?>
     <?php require "blocks/registration.php" ?>
     <form id="mailform" action="check/SendMailCheck.php" method="post" class="container mt-5">
-        <input type="email" id="email" placeholder="Введите Email*" class="form-control mb-1" style="display:inline"> <!--  -->
+
+        <input type="email" id="email" placeholder="Введите Email*" class="form-control mb-1" style="display:inline">
         <!--<space id = "ammaspace" class="col-md m-5" style="display:inline;"> TODO: Доработай что бы они были с двух разных сторон   col-xs-12 col-md-5-->
-        <input type="text" id="name" placeholder="Введите имя" class="form-control mb-2" style="display:inline">
+        <input type="text" id="name" placeholder="Введите имя" class="form-control mb-2" style="display:inline; padding-left:12px">
         <input type="phone" id="phone" placeholder="Телефон" class="form-control mb-2">
         <textarea id="message" class="form-control" placeholder="Введие ваше сообщение*" class="form-control" required></textarea>
         <button type="button" id="sendMail" class="btn btn-success mt-3">Отправить</button>
