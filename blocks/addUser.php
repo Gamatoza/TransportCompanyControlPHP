@@ -1,7 +1,6 @@
 <?php
 
 ?>
-
 <form id="someform" class="" action="check/UserAddedCheck.php" method="post">
     <div class="container">
         <label for="emptype"><b>Employee type</b></label>
@@ -16,10 +15,13 @@
         <input type="text" placeholder="Enter NIS" name="NIS" class="form-control" required>
         
         <label for="Birthday"><b>Birthday</b></label>
-        <input class="datepicker form-control" id="datepicker">
+        <input class="datepicker form-control" id="datepicker"> <!--PLACE DATEPICKER THERE-->
         <script>
+            $(document).ready(function(){
             $('#datepicker').click(function(){
-                $(this).datepicker($.datepicker.regional["ru"]);
+                $(this).datepicker($.datepicker.regional["ru"]); 
+            });
+            
             });
         </script>
 
@@ -28,4 +30,5 @@
 
         <button type="submit" class="btn btn-success mt-3" >Registrate</button>
     </div>
+    
 </form>

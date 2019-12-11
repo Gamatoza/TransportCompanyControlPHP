@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="datepicker.css">
     <link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.min.css">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
