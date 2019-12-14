@@ -14,6 +14,7 @@
             <a class="p-2 text-dark" href="index.php">Главная</a>
             <a class="p-2 text-dark" href="#">Заказы</a>
             <a class="p-2 text-dark" href="about.php">Контакты</a>
+            <a class="p-2 text-dark" href="about.php">Профиль</a>
         </nav>
         <a class="btn btn-outline-primary" href="#" onclick="window.location.href = 'check/Exit.php'">Выйти</a>
     <?php endif; ?>

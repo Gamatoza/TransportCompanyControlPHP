@@ -6,7 +6,7 @@
     $password = md5($password."JustAL1tt1eBi10fSa1t"); //пароль в хеш, безопасность и все такое
     //запрос
     $mysqli = new mysqli('localhost','root','qwerty','CompanyDataBase');
-    $result = $mysqli->query("SELECT * FROM vGetPasses WHERE EmpID = '$ACode'  AND `Password` = '$password'");
+    $result = $mysqli->query("SELECT * FROM vGetPasses WHERE EmpID = '$ACode'  AND `Password` = '$password'"); //добавить проверку на логин (псевдоним)
     
     $user = $result->fetch_assoc();
     if(count($user) == 0){
