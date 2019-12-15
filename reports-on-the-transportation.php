@@ -16,23 +16,25 @@
     <?php require "blocks/registration.php" ?>
     <?php
     $mysqli = new mysqli('localhost', 'root', 'qwerty', 'CompanyDataBase');
-    $result = $mysqli->query("SELECT * FROM Employee");
+    $result = $mysqli->query("SELECT * FROM vReport");
     $some = $result->fetch_assoc();
     echo $some['Password'];
     echo "<table width='100%' class='table table-striped'>";
-    echo "<tr><td>pole1</td><td>pole2</td><td>pole3</td><td>pole4</td></tr>";
-
+    echo "<tr><td>ID заказа</td><td>Заказ</td><td>Клиент</td><td>Дальнобойщик</td><td>Грузчик</td><td>Место отбытия</td><td>Место прибытия</td><td>Цена</td></tr>";
     while ($row = $result->fetch_assoc()) {
+        $Order = $row['OrderID'];
+        $OrderName = $row['OrderName'];
         $Client = $row['Client'];
-        $Loader = $row['Loader'];
         $FarRobber = $row['FarRobber'];
-        $From = $row['From'];
-        $From = $row['To'];
-        echo "<tr><td>$Client</td><td>$Loader</td><td>$FarRobber</td><td>$From</td><td>$To</td></tr>";
+        $Loader = $row['Loader'];
+        $Place = $row['PlaceName'];
+        $To = $row['To'];
+        $Price = $row['Price'];
+        echo "<tr><td>$Order</td><td>$OrderName</td><td>$</td><td>$Client</td><td>$FarRober</td><td>$Loader</td><td>$Place</td><td>$To</td><td>$Price</td></tr>";
     }
     echo "</table>";
     ?>
-    <!--<?php require "blocks/footer.php" ?>-->
+    <?php require "blocks/footer.php" ?>
 </body>
 
 </html>
