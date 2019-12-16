@@ -1,14 +1,21 @@
+<?php
+$mysqli = new mysqli('localhost','root','qwerty','CompanyDataBase');
+
+$result = $mysqli->query("SELECT * FROM CollectionPlace");
+$mysqli->close();
+?>
+
 <form id="someform" class="" action="check/UserAddedCheck.php" method="post">
     <div class="container mt-4">
         <div class="row">
             <div class="col">
                 <label for="emptype"><b>Employee type</b></label>
-                <select name="emptype" id="emptype" class="form-control mr-auto w-auto">
+                <select name="emptype" id="emptype" class="form-control">
 
                     <option></option>
-                    <option>Loader</option>
-                    <option>FarRobber</option>
-                    <option>Accountant</option>
+                    <option value="Loaders">Loader</option>
+                    <option value="FarRobber">Far Robber</option>
+                    <option value="Accountants">Accountant</option>
                 </select>
 
                 <script>
@@ -28,7 +35,7 @@
                 <input type="text" placeholder="Enter NIS" name="NIS" class="form-control mb-0 mt-0" required>
             </div>
         </div>
-        <label for="Birthday"><b>Birthday</b></label>
+        <label for="Birthday" class="mt-2"><b>Birthday</b></label>
         <input class="datepicker form-control mb-2" id="datepicker" name="date">
         <script>
             $(document).ready(function() {
@@ -52,13 +59,18 @@
         <script>
             $("#phone").mask("+375 (99) 99-99-999"); //маска ввода
         </script>
-        
         <div id="place" style="display: none;">
             <label for="workplace"><b>Workplace</b></label>
-            <input type="text" placeholder="Enter Workplace" name="workplace" class="form-control">
+            <select name="workplace" id="workplace" class="form-control">
+                <?php 
+                    while(($row = $result->fetch_assoc()) != FALSE){
+                        echo "<option value = '".$row['CPID']."'>".$row['PlaceName']."</option>";
+                    }
+                ?>
+            </select>
         </div>
         
-        <label for="password"><b>Password</b></label>
+        <label for="password" class="mt-2"><b>Password</b></label>
         <input type="text" placeholder="Enter Password" name="password" class="form-control" required>
 
         <button type="submit" class="btn btn-success mt-3">Registrate</button>

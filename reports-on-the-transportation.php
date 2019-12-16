@@ -21,7 +21,7 @@
     echo $some['Password'];
     echo "<table width='100%' class='table table-striped'>";
     echo "<tr><td>ID заказа</td><td>Заказ</td><td>Клиент</td><td>Дальнобойщик</td><td>Грузчик</td><td>Место отбытия</td><td>Место прибытия</td><td>Цена</td></tr>";
-    while ($row = $result->fetch_assoc()) {
+    while (($row = $result->fetch_assoc()) != false) {
         $Order = $row['OrderID'];
         $OrderName = $row['OrderName'];
         $Client = $row['Client'];

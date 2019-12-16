@@ -10,12 +10,10 @@
     <?php else : ?>
         <h5 class="my-0 mr-md-auto font-weight-normal">Добро пожаловать <?= $_COOKIE['Login'] ?>!</h5>
         <nav class="my-2 my-md-0 mr-md-3">
-            <!--Здесь будут другие заголовки для рабочего, позже еще и для юзера, мбмб-->
             <a class="p-2 text-dark" href="index.php">Главная</a>
             <a class="p-2 text-dark" href="registrate-new-employee.php">Регистрация нового работника</a>
-            <a class="p-2 text-dark" href="#">Регистрация нового заказа</a>
+            <a class="p-2 text-dark" href="registrate-new-order.php">Регистрация нового заказа</a>
             <a class="p-2 text-dark" href="reports-on-the-transportation.php">Отчет о заказах</a>
-
         </nav>
         <a class="btn btn-outline-primary" href="#" onclick="window.location.href = 'check/Exit.php'">Выйти</a>
     <?php endif; ?>

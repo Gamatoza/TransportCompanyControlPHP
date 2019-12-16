@@ -1,11 +1,10 @@
 <?php
-    $emptype = filter_var(trim($_POST['emptype']),FILTER_SANITIZE_STRING)."s";
+    $emptype = filter_var(trim($_POST['emptype']),FILTER_SANITIZE_STRING);
     $NIS = filter_var(trim($_POST['NIS']),FILTER_SANITIZE_STRING);
     $date = filter_var(trim($_POST['date']),FILTER_SANITIZE_STRING);
     $password =  filter_var(trim($_POST['password']),FILTER_SANITIZE_STRING);
     $phone =  filter_var(trim($_POST['phone']),FILTER_SANITIZE_STRING);
     $workplace = filter_var(trim($_POST['workplace']),FILTER_SANITIZE_STRING);
-
     //собираем данные с формы
 
     if(mb_strlen($NIS) < 5 || mb_strlen($NIS) > 50){
