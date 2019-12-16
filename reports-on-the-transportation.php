@@ -22,12 +22,12 @@
     echo "<table width='100%' class='table table-striped'>";
     echo "<tr><td>ID заказа</td><td>Заказ</td><td>Клиент</td><td>Дальнобойщик</td><td>Грузчик</td><td>Место отбытия</td><td>Место прибытия</td><td>Цена</td></tr>";
     while (($row = $result->fetch_assoc()) != false) {
-        $Order = $row['OrderID'];
-        $OrderName = $row['OrderName'];
-        $Client = $row['Client'];
-        $FarRobber = $row['FarRobber'];
-        $Loader = $row['Loader'];
-        $Place = $row['PlaceName'];
+        $Order = $row['OrderNum'];
+        $OrderName = $row['Name'];
+        $Client = $row['ClientName'];
+        $FarRobber = $row['FarRobberName'];
+        $Loader = $row['LoaderName'];
+        $Place = $row['From'];
         $To = $row['To'];
         $Price = $row['Price'];
         echo "<tr><td>$Order</td><td>$OrderName</td><td>$</td><td>$Client</td><td>$FarRober</td><td>$Loader</td><td>$Place</td><td>$To</td><td>$Price</td></tr>";

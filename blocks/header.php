@@ -8,6 +8,7 @@
         </nav>
         <a class="btn btn-outline-primary" href="#" onclick="document.getElementById('id01').style.display='block';document.getElementById('mainbody').style.overflow = 'hidden';">Войти</a>
     <?php else : ?>
+        <!-- Здесь просмотр всех, пока что только бухгалтер -->
         <h5 class="my-0 mr-md-auto font-weight-normal">Добро пожаловать <?= $_COOKIE['Login'] ?>!</h5>
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="index.php">Главная</a>

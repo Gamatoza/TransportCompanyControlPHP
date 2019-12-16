@@ -8,7 +8,7 @@ $mysqli->close();
 <form id="someform" class="" action="check/UserAddedCheck.php" method="post">
     <div class="container mt-4">
         <div class="row">
-            <div class="col">
+            <div class="col-2">
                 <label for="emptype"><b>Employee type</b></label>
                 <select name="emptype" id="emptype" class="form-control">
 
