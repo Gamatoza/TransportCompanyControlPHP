@@ -146,20 +146,25 @@
     }
 </style>
 
-<div id="id02" class="modal">
+<div id="idtab" class="modal">
 
     <form class="modal-content animate" action="check/Authentification.php" method="post">
         <div class="imgcontainer">
-            <span onclick="document.getElementById('id02').style.display='none';document.getElementById('mainbody').style.overflow = 'auto';" class="close" title="Close Modal">×</span>
-            <input type="text" placeholder="Поиск" id="Search" class="form-control mb-0 mt-0">
+            <h1>Название таблицы<!--< ?=?>--></h1>
+            <div class="row">
+                <div class="col-11"><input type="text" placeholder="Поиск" id="Search" class="form-control mb-0 mt-0"></div>
+                <div class="col"><span onclick="document.getElementById('idtab').style.display='none';document.getElementById('mainbody').style.overflow = 'auto';" class="close" title="Close Modal">×</span></div>
+            </div>
         </div>
+        <table width='100%' class='table table-striped'>
+            <tr>
+                <th>OK</th>
+                <th>OK</th>
+                <th>OK</th>
+            </tr>
         <?php
-        echo "Hello dude";
+        echo "Hello dude"; //Table will be here
         ?>
+        </table>
     </form>
 </div>
-
-<script>
-    // Get the modal
-    var modal = document.getElementById('id02');
-</script>

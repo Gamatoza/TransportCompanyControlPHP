@@ -213,7 +213,11 @@ CREATE TABLE `Orders` (
   `Name` int(11) NOT NULL,
   `Weight` int(11) NOT NULL,
   `IsFragile` tinyint(1) NOT NULL,
-  PRIMARY KEY (`OrderID`)
+  `DateRecept` date DEFAULT NULL,
+  `FromThe` int(11) NOT NULL,
+  `ToThe` int(11) NOT NULL,
+  PRIMARY KEY (`OrderID`),
+  CONSTRAINT `Orders_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `Reports` (`OrderID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -235,22 +239,18 @@ DROP TABLE IF EXISTS `Reports`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Reports` (
   `OrderID` int(11) NOT NULL AUTO_INCREMENT,
+  `DateAccepted` date DEFAULT NULL,
   `ClientID` int(11) DEFAULT NULL,
   `FarRobberID` int(11) DEFAULT NULL,
   `LoaderID` int(11) DEFAULT NULL,
-  `From` int(11) DEFAULT NULL,
-  `To` int(11) DEFAULT NULL,
   `Price` int(11) DEFAULT NULL,
   PRIMARY KEY (`OrderID`),
   KEY `ClientID` (`ClientID`),
   KEY `FarRobberID` (`FarRobberID`),
   KEY `LoaderID` (`LoaderID`),
-  KEY `From` (`From`),
-  CONSTRAINT `Reports_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `Orders` (`OrderID`) ON DELETE CASCADE,
   CONSTRAINT `Reports_ibfk_2` FOREIGN KEY (`ClientID`) REFERENCES `Clientele` (`ClientID`) ON DELETE SET NULL,
   CONSTRAINT `Reports_ibfk_3` FOREIGN KEY (`FarRobberID`) REFERENCES `FarRobbers` (`FRID`) ON DELETE SET NULL,
-  CONSTRAINT `Reports_ibfk_4` FOREIGN KEY (`LoaderID`) REFERENCES `Loaders` (`LID`) ON DELETE SET NULL,
-  CONSTRAINT `Reports_ibfk_5` FOREIGN KEY (`From`) REFERENCES `CollectionPlace` (`CPID`) ON DELETE SET NULL
+  CONSTRAINT `Reports_ibfk_4` FOREIGN KEY (`LoaderID`) REFERENCES `Loaders` (`LID`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -306,6 +306,27 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary table structure for view `vReport`
+--
+
+DROP TABLE IF EXISTS `vReport`;
+/*!50001 DROP VIEW IF EXISTS `vReport`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vReport` AS SELECT 
+ 1 AS `OrderNum`,
+ 1 AS `Name`,
+ 1 AS `DateRecept`,
+ 1 AS `DateAccepted`,
+ 1 AS `ClientName`,
+ 1 AS `FarRobberName`,
+ 1 AS `LoaderName`,
+ 1 AS `From`,
+ 1 AS `To`,
+ 1 AS `Price`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Final view structure for view `vGetPasses`
 --
 
@@ -322,6 +343,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vReport`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vReport`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vReport` AS select `rp`.`OrderID` AS `OrderNum`,`ord`.`Name` AS `Name`,`ord`.`DateRecept` AS `DateRecept`,`rp`.`DateAccepted` AS `DateAccepted`,`cl`.`NIS` AS `ClientName`,`fr`.`FRID` AS `FarRobberName`,`ld`.`NIS` AS `LoaderName`,`ord`.`FromThe` AS `From`,`ord`.`ToThe` AS `To`,`rp`.`Price` AS `Price` from ((((`Reports` `rp` join `Orders` `ord` on((`ord`.`OrderID` = `rp`.`OrderID`))) join `Clientele` `cl` on((`cl`.`ClientID` = `rp`.`ClientID`))) join `FarRobbers` `fr` on((`fr`.`FRID` = `rp`.`FarRobberID`))) join `Loaders` `ld` on((`ld`.`LID` = `rp`.`LoaderID`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -332,4 +371,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-16 12:38:55
+-- Dump completed on 2019-12-16 20:02:11

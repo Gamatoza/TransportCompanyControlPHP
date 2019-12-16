@@ -15,8 +15,10 @@
     <?php require "blocks/header.php" ?>
     <?php require "blocks/registration.php" ?>
     
+    
+    
     <?php require "blocks/addOrder.php" ?>
-
+    <?php require "blocks/getValueFromTable.php" ?>
 
     <?php require "blocks/footer.php" ?>
 </body>

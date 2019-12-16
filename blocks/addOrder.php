@@ -4,7 +4,6 @@ $mysqli = new mysqli('localhost', 'root', 'qwerty', 'CompanyDataBase');
 $result = $mysqli->query("SELECT * FROM CollectionPlace");
 $mysqli->close();
 ?>
-
 <form id="someform" class="" action="check/UserAddedCheck.php" method="post">
     <div class="container mt-4">
 
@@ -14,8 +13,8 @@ $mysqli->close();
                 <input type="text" placeholder="" name="" class="form-control" required>
             </div>
             <div class="col-1">
-                <label for=" " class="mt-3"><b></b></label>
-                <a class="btn btn-outline-primary" href="#" onclick="document.getElementById('id02').style.display='block';document.getElementById('mainbody').style.overflow = 'hidden';">Войти</a>
+                <label for="" class="mt-3"><b></b></label>
+                <a class="btn btn-dark" href="#" onclick="document.getElementById('idtab').style.display='block';document.getElementById('mainbody').style.overflow = 'hidden';">Показать&nbsp;таблицу</a> <!--nbsp это запрет на перенос-->
             </div><!--Добить все поля, сопостовление по Значение - Кнопка для получения таблицы, что бы выбрать [вставьте название таблицы]-->
             <!--Все по Reports-->
         </div>
