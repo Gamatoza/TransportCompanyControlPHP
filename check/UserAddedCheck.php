@@ -21,7 +21,7 @@
         case 'Loaders':
             $ID = 'LID';
         break;
-        case 'Accountant':
+        case 'Accountants':
             $ID = 'AID';
         break;
         default:

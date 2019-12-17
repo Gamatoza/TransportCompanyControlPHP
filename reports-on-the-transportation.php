@@ -7,12 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/beautifyHeaders.css">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <title>Главная</title>
+    <title>Отчет</title>
 </head>
 
 <body id="mainbody">
+    <?php require "check/IsLogOn.php"?>
+
     <?php require "blocks/header.php" ?>
+    <!--КОЛОНКА ДЛЯ ПОИСКА ДА-->
     <?php require "blocks/registration.php" ?>
     <?php
     $mysqli = new mysqli('localhost', 'root', 'qwerty', 'CompanyDataBase');

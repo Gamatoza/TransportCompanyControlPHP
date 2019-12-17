@@ -8,13 +8,13 @@ $mysqli->close();
 <form id="someform" class="" action="check/UserAddedCheck.php" method="post">
     <div class="container mt-4">
         <div class="row">
-            <div class="col-2">
-                <label for="emptype"><b>Employee type</b></label>
+            <div class="col-4">
+                <label for="emptype"><b>Employee&nbsp;type</b></label>
                 <select name="emptype" id="emptype" class="form-control">
 
                     <option></option>
                     <option value="Loaders">Loader</option>
-                    <option value="FarRobber">Far Robber</option>
+                    <option value="FarRobbers">Far Robber</option>
                     <option value="Accountants">Accountant</option>
                 </select>
 

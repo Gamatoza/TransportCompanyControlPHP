@@ -77,9 +77,8 @@ DROP TABLE IF EXISTS `Clientele`;
 CREATE TABLE `Clientele` (
   `ClientID` int(11) NOT NULL,
   `NIS` varchar(50) DEFAULT NULL,
-  `OrderBroduectID` int(11) NOT NULL,
   `PhoneNumber` int(11) DEFAULT NULL,
-  `Emil` varchar(50) DEFAULT NULL,
+  `Email` varchar(50) DEFAULT NULL,
   `Password` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`ClientID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -105,7 +104,7 @@ CREATE TABLE `CollectionPlace` (
   `CPID` int(11) NOT NULL AUTO_INCREMENT,
   `PlaceName` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`CPID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,7 +113,7 @@ CREATE TABLE `CollectionPlace` (
 
 LOCK TABLES `CollectionPlace` WRITE;
 /*!40000 ALTER TABLE `CollectionPlace` DISABLE KEYS */;
-INSERT INTO `CollectionPlace` (`CPID`, `PlaceName`) VALUES (1,'Место не определено');
+INSERT INTO `CollectionPlace` (`CPID`, `PlaceName`) VALUES (1,'Undifined place\r\n'),(2,'Moscow');
 /*!40000 ALTER TABLE `CollectionPlace` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,7 +129,7 @@ CREATE TABLE `Employee` (
   `Password` varchar(32) NOT NULL,
   `Login` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`EmpID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,7 +138,7 @@ CREATE TABLE `Employee` (
 
 LOCK TABLES `Employee` WRITE;
 /*!40000 ALTER TABLE `Employee` DISABLE KEYS */;
-INSERT INTO `Employee` (`EmpID`, `Password`, `Login`) VALUES (1,'e118bf75901cc7450903f9f4c5d5c21e','God');
+INSERT INTO `Employee` (`EmpID`, `Password`, `Login`) VALUES (1,'e118bf75901cc7450903f9f4c5d5c21e','God'),(2,'b5fcd12110425c923e56d2f3e98a0c6e',NULL),(3,'b5fcd12110425c923e56d2f3e98a0c6e',NULL),(4,'b5fcd12110425c923e56d2f3e98a0c6e',NULL);
 /*!40000 ALTER TABLE `Employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -198,6 +197,7 @@ CREATE TABLE `Loaders` (
 
 LOCK TABLES `Loaders` WRITE;
 /*!40000 ALTER TABLE `Loaders` DISABLE KEYS */;
+INSERT INTO `Loaders` (`LID`, `NIS`, `Birthday`, `PhoneNumber`, `WorkPlaceID`) VALUES (2,'A Gunnnnnnnnadiy','1999-03-05','+375 (15) 88-95-035',1),(3,'Give This Man','1999-03-02','+375 (12) 34-12-574',1),(4,'Somebody Please Give','1999-03-03','+375 (12) 31-23-123',1);
 /*!40000 ALTER TABLE `Loaders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -209,14 +209,14 @@ DROP TABLE IF EXISTS `Orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Orders` (
-  `OrderID` int(11) NOT NULL,
-  `OrderName` varchar(250) DEFAULT NULL,
-  `ClietID` int(11) DEFAULT NULL,
-  `FarRobberID` int(11) DEFAULT NULL,
-  `LoaderID` int(11) DEFAULT NULL,
-  `From` int(11) DEFAULT NULL,
-  `To` int(11) DEFAULT NULL,
-  `Price` int(11) DEFAULT NULL,
+  `OrderID` int(11) NOT NULL AUTO_INCREMENT,
+  `ClientID` int(11) DEFAULT NULL,
+  `Name` varchar(250) NOT NULL,
+  `Weight` decimal(10,2) NOT NULL,
+  `IsFragile` bit(1) NOT NULL,
+  `DateRecept` date DEFAULT NULL,
+  `FromThe` varchar(250) NOT NULL,
+  `ToThe` varchar(250) NOT NULL,
   PRIMARY KEY (`OrderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -228,6 +228,36 @@ CREATE TABLE `Orders` (
 LOCK TABLES `Orders` WRITE;
 /*!40000 ALTER TABLE `Orders` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Reports`
+--
+
+DROP TABLE IF EXISTS `Reports`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Reports` (
+  `OrderID` int(11) NOT NULL AUTO_INCREMENT,
+  `DateAccepted` date DEFAULT NULL,
+  `ClientID` int(11) DEFAULT NULL,
+  `FarRobberID` int(11) DEFAULT NULL,
+  `LoaderID` int(11) DEFAULT NULL,
+  `Price` int(11) DEFAULT NULL,
+  PRIMARY KEY (`OrderID`),
+  KEY `ClientID` (`ClientID`),
+  KEY `FarRobberID` (`FarRobberID`),
+  KEY `LoaderID` (`LoaderID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Reports`
+--
+
+LOCK TABLES `Reports` WRITE;
+/*!40000 ALTER TABLE `Reports` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Reports` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -281,12 +311,14 @@ DROP TABLE IF EXISTS `vReport`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `vReport` AS SELECT 
- 1 AS `OrderID`,
- 1 AS `OrderName`,
- 1 AS `Client`,
- 1 AS `FarRobber`,
- 1 AS `Loader`,
- 1 AS `PlaceName`,
+ 1 AS `OrderNum`,
+ 1 AS `Name`,
+ 1 AS `DateRecept`,
+ 1 AS `DateAccepted`,
+ 1 AS `ClientName`,
+ 1 AS `FarRobberName`,
+ 1 AS `LoaderName`,
+ 1 AS `From`,
  1 AS `To`,
  1 AS `Price`*/;
 SET character_set_client = @saved_cs_client;
@@ -322,7 +354,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vReport` AS select `ord`.`OrderID` AS `OrderID`,`ord`.`OrderName` AS `OrderName`,`cl`.`NIS` AS `Client`,`fr`.`NIS` AS `FarRobber`,`ld`.`NIS` AS `Loader`,`cp`.`PlaceName` AS `PlaceName`,`ord`.`To` AS `To`,`ord`.`Price` AS `Price` from ((((`Orders` `ord` join `Loaders` `ld` on((`ld`.`LID` = `ord`.`LoaderID`))) join `FarRobbers` `fr` on((`fr`.`FRID` = `ord`.`FarRobberID`))) join `CollectionPlace` `cp` on((`cp`.`CPID` = `ord`.`From`))) join `Clientele` `cl` on((`cl`.`ClientID` = `ord`.`ClietID`))) */;
+/*!50001 VIEW `vReport` AS select `rp`.`OrderID` AS `OrderNum`,`ord`.`Name` AS `Name`,`ord`.`DateRecept` AS `DateRecept`,`rp`.`DateAccepted` AS `DateAccepted`,`cl`.`NIS` AS `ClientName`,`fr`.`FRID` AS `FarRobberName`,`ld`.`NIS` AS `LoaderName`,`ord`.`FromThe` AS `From`,`ord`.`ToThe` AS `To`,`rp`.`Price` AS `Price` from ((((`Reports` `rp` join `Orders` `ord` on((`ord`.`OrderID` = `rp`.`OrderID`))) join `Clientele` `cl` on((`cl`.`ClientID` = `rp`.`ClientID`))) join `FarRobbers` `fr` on((`fr`.`FRID` = `rp`.`FarRobberID`))) join `Loaders` `ld` on((`ld`.`LID` = `rp`.`LoaderID`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -336,4 +368,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-15 22:53:34
+-- Dump completed on 2019-12-17 23:31:12

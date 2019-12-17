@@ -16,6 +16,7 @@
     
     setcookie('AID',$user['EmpID'],time() + 3600,"/");
     setcookie('Login',$user['Login'],time() + 3600,"/");
+    setcookie('NIS',$user['Name'],time() + 3600,"/");
     setcookie('EmpType',$user['EmpType'],time() + 3600,"/");
 
     $mysqli->close();
