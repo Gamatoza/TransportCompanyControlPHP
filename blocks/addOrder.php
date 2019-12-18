@@ -4,7 +4,7 @@ $mysqli = new mysqli('localhost', 'root', 'qwerty', 'CompanyDataBase');
 $result = $mysqli->query("SELECT * FROM CollectionPlace");
 $mysqli->close();
 ?>
-<form id="someform" class="" action="check/UserAddedCheck.php" method="post">
+<form id="someform" class="" action="check/OrderAddedCheck.php" method="post">
     <div class="container mt-4">
 
         <div class="row">

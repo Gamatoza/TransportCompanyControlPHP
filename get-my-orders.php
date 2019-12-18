@@ -16,23 +16,21 @@
     <?php require "check/IsLogOn.php"?>
 
     <?php require "blocks/header.php" ?>
-    <!--КОЛОНКА ДЛЯ ПОИСКА ДА-->
     <?php require "blocks/registration.php" ?>
     <?php
     $mysqli = new mysqli('localhost', 'root', 'qwerty', 'CompanyDataBase');
-    $result = $mysqli->query("SELECT * FROM vReport");
+    $result = $mysqli->query("SELECT * FROM vReport WHERE ClientName = '".$_COOKIE['NIS']."'");
     echo "<table width='100%' class='table table-striped'>";
-    echo "<tr><td>ID заказа</td><td>Заказ</td><td>Клиент</td><td>Дальнобойщик</td><td>Грузчик</td><td>Место отбытия</td><td>Место прибытия</td><td>Цена</td></tr>";
+    echo "<tr><td>ID заказа</td><td>Заказ</td><td>Дальнобойщик</td><td>Грузчик</td><td>Место отбытия</td><td>Место прибытия</td><td>Цена</td></tr>";
     while (($row = $result->fetch_assoc()) != false) {
         $Order = $row['OrderNum'];
         $OrderName = $row['Name'];
-        $Client = $row['ClientName'];
         $FarRobber = $row['FarRobberName'];
         $Loader = $row['LoaderName'];
         $Place = $row['From'];
         $To = $row['To'];
         $Price = $row['Price'];
-        echo "<tr><td>$Order</td><td>$OrderName</td><td>$Client</td><td>$FarRobber</td><td>$Loader</td><td>$Place</td><td>$To</td><td>$Price</td></tr>";
+        echo "<tr><td>$Order</td><td>$OrderName</td><td>$FarRobber</td><td>$Loader</td><td>$Place</td><td>$To</td><td>$Price</td></tr>";
     }
     echo "</table>";
     ?>

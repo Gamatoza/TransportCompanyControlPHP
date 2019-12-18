@@ -31,7 +31,7 @@
     } //нарушает SOLID
     // можно использовать заглавные буквы + ID, но как это сделать коротко и красиво, пока не ясно
 
-
+    
     //exit(); // TEST PLACE //убрать только когда будет готово, ибо лишние добавления в бд мне не нужны
     
     //подключение
@@ -39,10 +39,15 @@
     
     //запрос
     $mysqli = new mysqli('localhost','root','qwerty','CompanyDataBase');
-
     $mysqli->query("INSERT INTO `Employee` (`Password`) VALUES('$password')");
     $ins = $mysqli->insert_id;
-    $mysqli->query("INSERT INTO `$emptype` ($ID,NIS,Birthday,PhoneNumber".($workplace!=null?",WorkPlaceID":'').") VALUES ($ins,'$NIS','$date','$phone'".($workplace!=null?",".$workplace:'').")");
+    
+    $date = $date." 12:00:00";
+    $d1 = strtotime($date); //3 СТРОКИ НЕ ИМЕЮЩИЕ СМЫСЛА ОТ СЛОВА ВООБЩЕ, НО БЕЗ НИХ НЕ РАБОТАЕТ
+    $date2 = date("Y-m-d",$d1);
+
+    $mysqli->query("INSERT INTO `$emptype` ($ID,NIS,Birthday,PhoneNumber".($workplace!=null?",WorkPlaceID":'').") VALUES ($ins,'$NIS','$date2','$phone'".($workplace!=null?",".$workplace:'').")");
+    
     $mysqli->close();
     header('Location: ../registrate-new-employee.php'); //переход обратно
 ?>
