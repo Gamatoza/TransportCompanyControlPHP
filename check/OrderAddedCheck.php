@@ -15,9 +15,9 @@
 
     //запрос
     $mysqli = new mysqli('localhost','root','qwerty','CompanyDataBase');
-
+    $date = date("Y-m-d");
     $mysqli->query("INSERT INTO `Reports` (OrderID,DateAccepted,ClientID,FarRobberID,LoaderID,Price)
-    VALUES (,'$OrderID',NOW(),'$ClientID','$FarRobberID',$LoaderID,$Price");
+    VALUES ('$OrderID','$date','$ClientID','$FarRobberID',$LoaderID,$Price)");
     $mysqli->close();
     //здесь должна быть проверка на НЕ добавление при ошибке, ака если нету заказа, то и пошев тi нахой
     header('Location: ../registrate-new-order.php'); //переход обратно

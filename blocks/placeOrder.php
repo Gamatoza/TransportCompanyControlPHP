@@ -5,14 +5,14 @@ $result = $mysqli->query("SELECT * FROM CollectionPlace");
 $mysqli->close();
 ?>
 
-<form id="someform" class="" action="check/ClientOrderAdded.php" method="post">
+<form id="someform" class="" action="check/ClientOrderAddedCheck.php" method="post">
     <!--Добавишь чек в котором два запроса, на нового пользователя и на заказ -->
     <div class="container mt-4">
         <div class="row">
-            <div class="col">
+            <?php if($_COOKIE['AID']<10000): ?>
+            <div class="col" >
                 <label for="NIS"><b>Name Initial Surname</b></label>
                 <input type="text" placeholder="Enter your Name" name="NIS" class="form-control mb-0 mt-0" required>
-
 
                 <label for="PhoneNumber" class="mt-3"><b>Phone number</b></label>
                 <input type="text" placeholder="+375 (999) 99 99 999" id="phone" name="PhoneNumber" class="form-control" required>
@@ -23,6 +23,7 @@ $mysqli->close();
                 <label for="Email" class="mt-2"><b>E-mail</b></label>
                 <input type="email" placeholder="Enter your e-mail" name="Email" class="form-control" required>
             </div>
+            <?php endif; ?>
             <div class="col">
                 <label for="Name"><b>Order Name</b></label>
                 <input type="text" placeholder="Enter order name" name="OrderName" class="form-control mb-0 mt-0" required>

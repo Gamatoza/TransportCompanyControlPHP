@@ -8,11 +8,11 @@
         </nav>
         <a class="btn btn-outline-primary" href="#" onclick="document.getElementById('id01').style.display='block';document.getElementById('mainbody').style.overflow = 'hidden';">Войти</a>
     <?php else : ?>
-        <?php if ($_COOKIE['CID'] != null) : ?>
+        <?php if ($_COOKIE['AID'] >= 10000) : ?>
             <h5 class="my-0 mr-md-auto font-weight-normal">Добро пожаловать <?= $_COOKIE['NIS'] ?>!</h5>
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="index.php">Главная</a>
-                <a class="p-2 text-dark" href="#">Проверить свои заказы</a>
+                <a class="p-2 text-dark" href="get-my-orders.php">Проверить свои заказы</a>
                 <a class="p-2 text-dark" href="place-your-order.php">Оформить запрос на заказ</a>
                 <a class="p-2 text-dark" href="about.php">Контакты</a>
             </nav>
