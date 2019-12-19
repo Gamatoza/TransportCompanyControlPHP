@@ -26,6 +26,10 @@
 
     <?php require "blocks/registration.php" ?>
 
+    <div class="header-h1 container">
+        <h1>Уволить работника</h1>
+    </div>
+    
     <?php require "blocks/addUser.php" ?>
 </body>
 

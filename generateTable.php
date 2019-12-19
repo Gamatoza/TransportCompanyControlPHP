@@ -32,7 +32,9 @@
         echo "<td>$row[0]</td>";
     }
     echo "</tr>";
-    
+    if($tabname == "Orders")
+    $result = $mysqli->query("SELECT ord.* FROM Orders ord RIGHT JOIN vReport rp ON ord.OrderID != rp.OrderNum");
+    else
     $result = $mysqli->query("SELECT * FROM $tabname");
     $length = $result->field_count;
     while(($row = $result->fetch_array()) != false){
