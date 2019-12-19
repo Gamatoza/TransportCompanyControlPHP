@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/beautifyHeaders.css">
-
-
-    
     <script src="js/main.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <title>Отчет</title>
@@ -22,8 +19,7 @@
     <?php require "blocks/header.php" ?>
     <!--КОЛОНКА ДЛЯ ПОИСКА ДА-->
     <?php require "blocks/registration.php" ?>
-    <form id='myForm' action='test.php' method='post'>
-        <!-- check/UpdateReport.php -->
+    <form id='myForm' action='check/UpdateReport.php' method='post'>
         <table width='100%' class='table table-striped'>
             <tr>
                 <td>ID заказа</td>
@@ -34,7 +30,7 @@
                 <td>Место отбытия</td>
                 <td>Место прибытия</td>
                 <td>Цена</td>
-                <td><button style='margin-top:-10px;margin-bottom: -10px;' name='id' value='0'>Сохранить</button></td>
+                <td>Выполнено?</td>
             </tr>
             <?php
             $mysqli = new mysqli('localhost', 'root', 'qwerty', 'CompanyDataBase');
@@ -54,8 +50,10 @@
             ?>
             <script>
                 $('#myForm').submit(function() {
-                    //alert('Handler for .submit() called.'); //Для обработки, позже пригодиться
+                    if(confirm("Вы уверены?"))
                     return true;
+                    else
+                    return false;
                 });
             </script>
         </table>

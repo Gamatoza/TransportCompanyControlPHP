@@ -23,6 +23,7 @@
         <h1>Регистрация нового работника</h1>
     </div>
 
+    <?php require "blocks/addUser.php" ?>
 
     <?php require "blocks/registration.php" ?>
 
@@ -30,7 +31,10 @@
         <h1>Уволить работника</h1>
     </div>
     
-    <?php require "blocks/addUser.php" ?>
+    <?php require "blocks/delUser.php" ?>
+
+    <?php require "blocks/footer.php" ?>
+
 </body>
 
 </html>

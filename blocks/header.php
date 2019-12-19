@@ -17,8 +17,15 @@
                 <a class="p-2 text-dark" href="about.php">Контакты</a>
             </nav>
             <a class="btn btn-outline-primary" href="#" onclick="window.location.href = 'check/Exit.php'">Выйти</a>
-        <?php else : ?>
+        <?php elseif ($_COOKIE['EmpType'] == 'Loader' || $_COOKIE['EmpType'] == 'FarRobber') : ?>
             <!-- Здесь просмотр работников, пока что только бухгалтер -->
+            <h5 class="my-0 mr-md-auto font-weight-normal">Добро пожаловать <?= $_COOKIE['Login'] != null ? $_COOKIE['Login'] : $_COOKIE['NIS'] ?>!</h5>
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-dark" href="index.php">Главная</a>
+                <a class="p-2 text-dark" href="get-my-work.php">Моя работа</a>
+            </nav>
+            <a class="btn btn-outline-primary" href="#" onclick="window.location.href = 'check/Exit.php'">Выйти</a>
+        <?php else : ?>
             <h5 class="my-0 mr-md-auto font-weight-normal">Добро пожаловать <?= $_COOKIE['Login'] != null ? $_COOKIE['Login'] : $_COOKIE['NIS'] ?>!</h5>
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="index.php">Главная</a>

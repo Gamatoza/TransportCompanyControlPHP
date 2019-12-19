@@ -21,10 +21,11 @@
         echo "Пользователь не найден";
         exit();
     }
+    
     setcookie('AID',$user[$resAID],time() + 3600,"/"); //resAID определяет какой код добавить, ибо столбцы разные окда
     setcookie('Login',$user['Login'],time() + 3600,"/");
     setcookie('NIS',$user['NIS'],time() + 3600,"/");
-    setcookie('EmpType',$user['EmpType'],time() + 3600,"/");
+    setcookie('EmpType',$user['Type'],time() + 3600,"/");
 
     $mysqli->close();
     if (@$_SERVER['HTTP_REFERER'] != null) {
