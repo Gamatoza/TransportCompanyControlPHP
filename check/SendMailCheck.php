@@ -7,9 +7,8 @@
         $error = 'Введите ваш email';
     else if(trim($message)=='')
         $error = 'Введите сообщение';
-    else if(strlen($message) < 10)
+    else if(strlen($message) < 5)
         $error = 'Сообщение слишком маленькое';
-
     if($error != ''){
         echo $error;
         exit;
@@ -17,7 +16,7 @@
     $subject = "=?utf-8?B?".base64_encode("Тестовое сообщение")."?="; //ctrl c ctrl v
     $headers = "From: $email\r\nReply-to: $email\r\nContent-type: text/html;character=utf-8\r\n";
 
-    mail('gamatext@yandex.ru',$subject,$message,$headers);//отправка сообщения
-
+    $success = mail('gamatext@yandex.ru',$subject,$message,$headers);//отправка сообщения
+    echo $success;
     header("Location: about.php"); //переход обратно
 ?>
