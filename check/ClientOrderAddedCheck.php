@@ -28,7 +28,7 @@ $mysqli = new mysqli('localhost', 'root', 'qwerty', 'CompanyDataBase');
     setcookie('NIS',$NIS,time() + 3600,"/");*/          //мы ее еще рассматриваем
 //кто мы? я и другие мои личности
 
-if($_COOKIE['AID' <= 10000]){
+if($_COOKIE['AID' <= 10000] || !isset($_COOKIE['AID'])){
 //$primPassword = rand(100000,999999);
 $primPassword = 123; //пока нет какой либо отправки сообщения пользователю пароль будет таким, лол
 $password = md5($primPassword . "JustAL1tt1eBi10fSa1t");
@@ -36,10 +36,11 @@ $password = md5($primPassword . "JustAL1tt1eBi10fSa1t");
 $mysqli->query("INSERT INTO `Clientele` (NIS,PhoneNumber,Email,`Password`)
     VALUES ('$NIS','$PhoneNumber','$Email','$password')");
 
+
+echo $mysqli->error;
 //------------------------// проверочки всякие
 
 $result = $mysqli->query("SELECT * FROM `Clientele` ORDER BY ClientID DESC LIMIT 1");
-
 
 $customer = $result->fetch_assoc();
 $currentNumber = $customer['ClientID'];
@@ -55,6 +56,9 @@ else
 $date = date("Y-m-d");
 $mysqli->query("INSERT INTO `Orders`(ClientID,`Name`,`Weight`,IsFragile,DateRecept,FromThe,ToThe)
     VALUES ($currentNumber,'$OrderName',$Weight,$IsFragile,'$date','$From','$To')");
+
+echo $mysqli->error;
+
 //------------------------// еще проверочки
 //?????
 //Profit!

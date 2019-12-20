@@ -11,7 +11,7 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
     <script src="js/jquery.maskedinput.min.js"></script>
-    <title>Новый работник</title>
+    <title>Ваш заказ</title>
 </head>
 
 <body id="mainbody">
