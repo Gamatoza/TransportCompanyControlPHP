@@ -31,6 +31,7 @@
     while(($row = $headers->fetch_array()) != false){
         echo "<td>$row[0]</td>";
     }
+    
     echo "</tr>";
     if($tabname == "Orders")
     $result = $mysqli->query("SELECT ord.* FROM Orders ord RIGHT JOIN vReport rp ON ord.OrderID != rp.OrderNum");
